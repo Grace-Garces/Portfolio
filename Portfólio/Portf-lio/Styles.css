@@ -1,0 +1,128 @@
+/* Slide 16:9 - 1 */
+.slide {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(244.4deg, #000000 11.48%, #C98E8E 88.52%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Contêiner de introdução */
+.intro-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+/* Texto de introdução */
+.intro-text {
+    font-family: 'Inria Sans', sans-serif;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.intro-text h1 {
+    font-size: 4vw;
+    font-weight: 700;
+}
+
+.intro-text h2 {
+    font-size: 1.3vw;
+    font-weight: 400;
+}
+
+.intro-text h3 {
+    font-size: 2vw;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.intro-text p {
+    font-size: 1.2vw;
+    margin-top: 1rem;
+    line-height: 1.5;
+}
+
+/* Menu */
+.menu {
+    position: relative;
+    width: 100%;
+    height: 83px;
+    background: linear-gradient(90deg, #9E8181 0%, #623D3D 100%);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.button {
+    width: 120px;
+    height: 40px;
+    margin-left: 1rem;
+    background: rgba(148, 121, 121, 0.26);
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Kameron', serif;
+    font-size: 1.2vw;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+/* Foto Perfil */
+.foto-perfil {
+    width: 500px; /* Ajuste conforme necessário */
+    height: 500px; /* Ajuste conforme necessário */
+    background: url('WhatsApp_Image_2024-07-10_at_18.45.36-removebg-preview.png') no-repeat center center;
+    background-size: cover;
+    clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0% 50%);
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Ícones de Redes Sociais */
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Estilo do botão */
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo do contêiner do ícone */
+.button > div {
+    width: 60px; /* largura do contêiner */
+    height: 50px; /* altura do contêiner */
+    margin-right: 1rem; /* margem direita para separação entre botões */
+    background: rgba(217, 217, 217, 0.01); /* fundo do contêiner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo da imagem dentro do contêiner */
+.button img {
+    max-width: 100%; /* imagem ajustada ao tamanho do contêiner */
+    max-height: 100%; /* imagem ajustada ao tamanho do contêiner */
+}
