@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: 'VT323', monospace;
-    background: linear-gradient(270deg, #192271, #000000);
+    background: linear-gradient(270deg, #241b35, #6c35de);
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
     color: #FFFFFF;
@@ -15,31 +15,53 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* Menu */
-.menu-principal {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(270.07deg, rgba(17, 17, 17, 0.5) 0.04%, rgba(33, 37, 73, 0.8) 62.49%);
-    padding: 20px;
-    position: sticky;
-    top: 0;
+/* Logo */
+.logo-section {
+    position: absolute;
+    top: 20px;
+    left: 20px;
     z-index: 1000;
 }
 
-.menu-principal .logo {
+.logo {
     font-size: 35px;
+    color: #FFFFFF;
 }
 
-.menu {
+/* Menu Principal */
+.menu-principal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 1000;
     display: flex;
-    gap: 20px;
+    align-items: center;
 }
 
-.botao-menu {
+.menu nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu nav a {
     text-decoration: none;
     color: #FFFFFF;
     font-size: 24px;
+}
+
+/* Espaçamento entre os botões */
+.menu nav a + a {
+    margin-left: 30px;
+}
+
+
+/* Página Inicial */
+main {
+    padding-top: 50px; /* Adiciona um espaçamento superior de 50px */
+    text-align: center;
+    padding: 100px 20px;
 }
 
 .highlight {
@@ -54,6 +76,7 @@ body {
 
 .texto-apresentacao {
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .console-text, .apresentacao-text, .dev-text {
@@ -65,74 +88,94 @@ body {
     font-size: 27px;
 }
 
-/* Botão Avançar */
-.botao-avancar {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    margin-bottom: 100px;
-}
-
-.botao-avancar .background {
-    position: relative;
-    overflow: hidden;
-    border: 0.1px solid rgba(255, 255, 255, 0.219);
-    padding: 70px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.034);
-    background-size: cover;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-out;
-}
-
-.botao-avancar:hover .background {
-    transform: scale(1.05);
-}
-
-.texto-botao {
-    font-size: 40px;
-    color: rgba(255, 255, 255, 0.9);
+/* Sobre Mim */
+.sobre-mim {
+    padding: 50px 20px;
     text-align: center;
-    padding: 200px;
-    margin: 0;
-    z-index: 1;
+    margin-top: -100px; /* Adiciona margem negativa para mover a seção para cima */
 }
 
-.tap-img {
-    position: absolute;
-    left: 50%;
-    bottom: 2px;
-    transform: translateX(-50%);
-    width: 52px;
-    height: auto;
-    animation: tapAnimation 1.5s ease-in-out infinite alternate;
+.sobre-mim .conteudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse; /* Inverte a ordem do flex-direction para colocar a imagem à esquerda */
 }
 
-@keyframes tapAnimation {
+.texto-imagem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Imagem de Apresentação */
+.SobreMim img {
+    width: 300px; /* Ajuste a largura conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+    position: relative; 
+    top: 110px; /* Move a imagem para cima */
+    margin-left: 20px; /* Espaço entre a imagem e o conteúdo ao lado */
+    opacity: 100;
+
+    /* Animação de movimento flutuante */
+    animation: floatAnimation 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatAnimation {
     0% {
-        transform: translateX(-50%) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) translateY(-10px);
+        transform: translateY(0);
     }
     100% {
-        transform: translateX(-50%) translateY(0);
+        transform: translateY(-20px); /* Ajuste a altura da flutuação conforme necessário */
     }
 }
 
-/* Sobre Mim e Projetos */
-.sobre-mim, .projetos {
-    padding: 50px 20px;
+
+/* Ferramentas */
+.ferramentas {
+    margin-top: -180px; /* Ajuste para mover a seção para cima */
 }
 
-.sobre-mim .conteudo, .projetos .descricao-projeto {
-    margin-bottom: 45px;
+.ferramentas h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.linguagens {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.linguagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linguagem img {
+    width: 80px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+/*Projetos*/
+.texto {
+    flex: 1;
+    text-align: left; /* Ajusta o texto para ficar à esquerda */
 }
 
 .imagem {
+    flex: 1;
+    text-align: center;
+}
+
+.imagem img {
     max-width: 100%;
     height: auto;
 }
+
 
 .projeto {
     display: flex;
@@ -151,24 +194,17 @@ body {
     min-width: 300px;
 }
 
-.imagem-placeholder {
-    background: rgba(217, 217, 217, 0.04);
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 36px;
-}
+
 
 /* Imagem de Apresentação */
-.apresentacao-img {
+.SobreMim {
     height: 500px; /* Ajuste a altura conforme necessário */
     width: auto; /* Mantém a proporção da imagem */
     position: relative; /* Define a posição relativa para facilitar o posicionamento */
-    top: -100px; /* Move a imagem para cima por 100 pixels */
+    top: -20px; /* Move a imagem para cima por 100 pixels */
     float: right;
     margin-left: 20px; /* Opcional: para dar espaço entre a imagem e o conteúdo ao lado */
-    opacity: 0.8;
+    opacity: 0.44;
 
     /* Animação de movimento flutuante */
     animation: floatAnimation 3s ease-in-out infinite alternate;
@@ -184,42 +220,11 @@ body {
 }
 
 
-/* Estilos para Desktops (até 1224px) */
-@media (max-width: 1224px) {
-    .apresentacao-img {
-        height: 400px; /* Reduz a altura da imagem para tablets */
-        top: -50px; /* Ajusta a posição para cima */
-    }
-}
-
-
-/* Estilos para tablets (até 1024px) */
-@media (max-width: 1024px) {
-    .apresentacao-img {
-        height: 400px; /* Reduz a altura da imagem para tablets */
-        top: -80px; /* Ajusta a posição para cima */
-    }
-}
-
-/* Estilos para celulares (até 768px) */
-@media (max-width: 768px) {
-    .apresentacao-img {
-        height: 300px; /* Reduz ainda mais a altura da imagem para celulares */
-        top: -20px; /* Ajusta a posição para cima */
-        float: none; /* Remove o float para que a imagem ocupe toda a largura */
-        margin: 0 auto; /* Centraliza a imagem */
-        display: block; /* Garante que a imagem seja exibida como bloco */
-    }
-
-    .menu {
-        flex-direction: column;
-    }
-
-    .menu .botao-menu {
-        margin-top: 10px;
-    }
-
-    .botao-avancar {
-        margin-bottom: 50px; /* Reduz a margem inferior do botão para celular */
-    }
+.imagem-placeholder {
+    background: rgba(217, 217, 217, 0.04);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
 }
