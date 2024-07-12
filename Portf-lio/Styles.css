@@ -228,3 +228,32 @@ main {
     justify-content: center;
     font-size: 36px;
 }
+
+
+/* Estilos para Desktops (até 1224px) */
+@media (max-width: 1224px) {
+    .apresentacao-img {
+        height: 400px; /* Reduz a altura da imagem para tablets */
+        top: -50px; /* Ajusta a posição para cima */
+    }
+}
+
+
+/* Estilos para tablets (até 1024px) */
+@media (max-width: 1024px) {
+    .apresentacao-img {
+        height: 400px; /* Reduz a altura da imagem para tablets */
+        top: -80px; /* Ajusta a posição para cima */
+    }
+}
+
+/* Estilos para celulares (até 768px) */
+@media (max-width: 768px) {
+    .apresentacao-img {
+        height: 300px; /* Reduz ainda mais a altura da imagem para celulares */
+        top: -20px; /* Ajusta a posição para cima */
+        float: none; /* Remove o float para que a imagem ocupe toda a largura */
+        margin: 0 auto; /* Centraliza a imagem */
+        display: block; /* Garante que a imagem seja exibida como bloco */
+    }
+}
