@@ -28,67 +28,29 @@ document.addEventListener("DOMContentLoaded", function() {
     startTextAnimation(0);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    AOS.init({
-        duration: 1200, // Duração padrão das animações
-        once: true, // As animações acontecem apenas uma vez
-        easing: 'ease-out-back' // Tipo de easing
-    });
-});
-
+//ANIMAÇÃO DE ESTRELAS DO .BODY BACKGROUND
 
 document.addEventListener("DOMContentLoaded", function() {
     const body = document.body;
-    const colors = [
-        "#192271", "#000000",
-        "#000000", "#192271"
-    ];
-    let step = 0;
-    const gradientSpeed = 0.001;
-    
-    function updateGradient() {
-        if (step >= 1) {
-            step = 0;
-            colors.push(colors.shift());
-        }
-        
-        const c0_0 = colors[0];
-        const c0_1 = colors[1];
-        const c1_0 = colors[2];
-        const c1_1 = colors[3];
-        
-        const istep = 1 - step;
-        const color1 = blendColors(c0_0, c0_1, istep);
-        const color2 = blendColors(c1_0, c1_1, istep);
-        
-        body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
-        
-        step += gradientSpeed;
-        
-        requestAnimationFrame(updateGradient);
+
+    function createStars() {
+        const stars = document.createElement('div');
+        stars.className = 'stars';
+        const randomX = Math.random() * window.innerWidth;
+        const randomY = Math.random() * window.innerHeight;
+        stars.style.left = `${randomX}px`;
+        stars.style.top = `${randomY}px`;
+        body.appendChild(stars);
     }
-    
-    function blendColors(c0, c1, p) {
-        const f = parseInt(c0.slice(1), 16);
-        const t = parseInt(c1.slice(1), 16);
-        const R1 = f >> 16;
-        const G1 = (f >> 8) & 0x00FF;
-        const B1 = f & 0x0000FF;
-        const R2 = t >> 16;
-        const G2 = (t >> 8) & 0x00FF;
-        const B2 = t & 0x0000FF;
-        return `#${(
-            0x1000000 +
-            (Math.round((R2 - R1) * p) + R1) * 0x10000 +
-            (Math.round((G2 - G1) * p) + G1) * 0x100 +
-            (Math.round((B2 - B1) * p) + B1)
-        ).toString(16).slice(1)}`;
+
+    // Cria múltiplas estrelas e as posiciona aleatoriamente na tela
+    for (let i = 0; i < 200; i++) {
+        createStars();
     }
-    
-    updateGradient();
 });
 
 
+//POP-UP DE EXPLICAÇÃO DAS LINGUAGENS DA SECTION FERRAMENTAS
 
 document.addEventListener("DOMContentLoaded", function() {
     const linguagens = {
@@ -134,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
+   //ANIMAÇÃO DO TITULO DA SECTION FERRAMENTAS (AUTO DIGITAÇÃO)
 document.addEventListener("DOMContentLoaded", function() {
     const textsLanges = [
         'Minhas Ferramentas'
@@ -161,6 +123,8 @@ document.addEventListener("DOMContentLoaded", function() {
         
     }
 
+    //ANIMAÇÃO DO TITULO DA SECTION PROJETOS (AUTO DIGITAÇÃO)
+
     startTextAnimationLanges(0);
 
     const textsProject = [
@@ -186,19 +150,25 @@ document.addEventListener("DOMContentLoaded", function() {
             startTextAnimationProject(i + 1);
         });
     }
-
+//Animação AOS, para as sections se moverem na tela
     startTextAnimationProject(0);
 
     AOS.init({
         duration: 1200, // Duração padrão das animações
-        once: true, // As animações acontecem apenas uma vez
+        once: false, // As animações acontecem apenas uma vez
         easing: 'ease-out-back' // Tipo de easing
     });
-
+    document.addEventListener("DOMContentLoaded", function() {
+        AOS.init({
+            duration: 2900, // Duração padrão das animações
+            once: false, // As animações acontecem apenas uma vez
+            easing: 'ease-out-back' // Tipo de easing
+        });
+    });
     
 });
 
-
+ //Estilo texto da section ferramentas (auto digitação)
 document.addEventListener("DOMContentLoaded", function() {
     const textsFerament1 = [
         'Java'
@@ -359,13 +329,7 @@ document.addEventListener("DOMContentLoaded", function() {
     startTextAnimationLanges6(0);
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    AOS.init({
-        duration: 2900, // Duração padrão das animações
-        once: false, // As animações acontecem apenas uma vez
-        easing: 'ease-out-back' // Tipo de easing
-    });
-});
+
 
 
 
